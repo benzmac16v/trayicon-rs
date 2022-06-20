@@ -32,9 +32,6 @@ where
     /// using more imperative `set_item_checkable`, `get_item_checkable` and
     /// `set_item_disabled` methods.
     pub fn set_menu(&mut self, menu: &MenuBuilder<T>) -> Result<(), Error> {
-        if self.builder.menu.as_ref() == Some(menu) {
-            return Ok(());
-        }
         self.builder.menu = Some(menu.clone());
         self.sys.set_menu(menu)
     }
